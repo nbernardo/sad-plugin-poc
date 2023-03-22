@@ -1,7 +1,5 @@
 <?php
 use \App\Http\Controllers\PluginController;
-//$mm = new PluginController();
-//PluginController::pluginExists("home_main.zip");
 ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
