@@ -13,7 +13,6 @@ class PluginParser extends BaseController {
 
     public function upload(){
 
-        $zipFile = new ZipFile();
         $uploadFolder = storage_path('app/public');
         
         $file = $_FILES["myFile"]["tmp_name"];
@@ -31,6 +30,7 @@ class PluginParser extends BaseController {
             
             //TODO: A implementação abaixo deverá ir para uma classe própria (ex: PluginDTO)
             if(move_uploaded_file($file, $resultFile)){
+                $zipFile = new ZipFile();
                 $metadata = "";
                 mkdir($pluginPath,0777); //Criar o directorio do plugin
                 $zipFile
@@ -43,7 +43,7 @@ class PluginParser extends BaseController {
                 if($save){
                     if(is_file($resultFile))
                         unlink($resultFile); //Exclui o pkg do plugin 
-                    print("Plugins salvo com sucesso!");
+                    print("Plugins instalado com sucesso!");
                 }
             }
 
